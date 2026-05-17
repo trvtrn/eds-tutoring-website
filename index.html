@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Apex Tutoring — English Tuition for Years 7–12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1C2B3A;
+    --navy-light: #2D3F52;
+    --cream: #F7F4EE;
+    --cream-dark: #EDE9E1;
+    --green: #2E6B4F;
+    --green-light: #3D8D68;
+    --gold: #C4944A;
+    --white: #FFFFFF;
+    --text-muted: #6B7A8A;
+    --border: #DDD8CF;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Outfit', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    color: var(--navy);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.2px;
+  }
+  .nav-logo span { color: var(--green); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green); }
+  .nav-cta {
+    background: var(--green);
+    color: var(--white) !important;
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-size: 14px !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--green-light) !important; color: var(--white) !important; }
+
+  /* ─── HERO ─── */
+  #home {
+    background: var(--cream);
+    padding: 96px 5% 88px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 88vh;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--green);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 3px;
+    margin-bottom: 1.4rem;
+  }
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(42px, 5vw, 62px);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--navy);
+    margin-bottom: 1.3rem;
+    letter-spacing: -0.5px;
+  }
+  .hero-headline em { color: var(--green); font-style: italic; }
+  .hero-subtext {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2.2rem;
+    max-width: 460px;
+  }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary {
+    background: var(--green);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+  .btn-secondary {
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 13px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--navy); background: rgba(28,43,58,0.04); }
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 600;
+    color: var(--navy);
+    display: block;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    display: block;
+  }
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-card-stack {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+  }
+  .hero-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+  }
+  .hero-card-back {
+    position: absolute;
+    top: -16px;
+    left: 16px;
+    right: -16px;
+    bottom: 16px;
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    z-index: 0;
+  }
+  .hero-card { z-index: 1; }
+  .card-tag {
+    background: #EAF5EE;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+  }
+  .card-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  .card-body { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.4rem; }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+  }
+  .card-meta-label { font-size: 13px; color: var(--text-muted); }
+  .card-meta-value { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .pill {
+    background: #EAF5EE;
+    color: var(--green);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* ─── SECTION SHELL ─── */
+  section { padding: 88px 5%; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(32px, 3.5vw, 46px);
+    font-weight: 600;
+    line-height: 1.18;
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+  .section-subtext {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+  .section-header { margin-bottom: 3.5rem; }
+  .section-header.centered { text-align: center; }
+  .section-header.centered .section-subtext { margin: 0 auto; }
+  section.alt { background: var(--cream); }
+
+  /* ─── ABOUT ─── */
+  #about .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-img-block {
+    position: relative;
+  }
+  .about-img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--cream-dark);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+  }
+  .about-img-placeholder span {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .about-accent-card {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 12px;
+    padding: 20px 24px;
+    width: 200px;
+  }
+  .about-accent-num {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 600;
+    display: block;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .about-accent-text { font-size: 13px; margin-top: 4px; opacity: 0.8; }
+  .about-content { padding-left: 1rem; }
+  .about-content p { color: var(--text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 1.2rem; }
+  .about-quals {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .qual-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .qual-icon {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .qual-text { font-size: 15px; color: var(--navy); font-weight: 400; }
+
+  /* ─── SERVICES / PRICING ─── */
+  #services .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .pricing-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 2.2rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .pricing-card:hover {
+    box-shadow: 0 8px 32px rgba(28,43,58,0.08);
+    transform: translateY(-3px);
+  }
+  .pricing-card.featured {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  .pricing-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 1.4rem;
+  }
+  .pricing-badge.green { background: #EAF5EE; color: var(--green); }
+  .pricing-badge.gold { background: #FDF3E3; color: var(--gold); }
+  .pricing-badge.white { background: rgba(255,255,255,0.15); color: var(--white); }
+  .pricing-year {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+  }
+  .pricing-card.featured .pricing-year { color: rgba(255,255,255,0.7); }
+  .pricing-title {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .pricing-card.featured .pricing-title { color: var(--white); }
+  .pricing-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+  }
+  .pricing-card.featured .pricing-desc { color: rgba(255,255,255,0.65); }
+  .pricing-price {
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .pricing-card.featured .pricing-price { border-bottom-color: rgba(255,255,255,0.15); }
+  .price-from { font-size: 13px; color: var(--text-muted); }
+  .pricing-card.featured .price-from { color: rgba(255,255,255,0.55); }
+  .price-num {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    display: block;
+  }
+  .pricing-card.featured .price-num { color: var(--white); }
+  .price-per { font-size: 14px; color: var(--text-muted); }
+  .pricing-card.featured .price-per { color: rgba(255,255,255,0.55); }
+  .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
+  .pricing-features li {
+    font-size: 14px;
+    color: var(--navy);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.85); }
+  .check {
+    width: 16px;
+    height: 16px;
+    background: var(--green);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pricing-card.featured .check { background: var(--gold); }
+  .check::after {
+    content: '';
+    width: 5px;
+    height: 3px;
+    border-left: 1.5px solid white;
+    border-bottom: 1.5px solid white;
+    transform: rotate(-45deg) translateY(-1px);
+    display: block;
+  }
+  .btn-pricing {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 13px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1.5px solid transparent;
+  }
+  .btn-pricing.outline {
+    border-color: var(--border);
+    color: var(--navy);
+    background: transparent;
+  }
+  .btn-pricing.outline:hover { border-color: var(--navy); background: rgba(28,43,58,0.04); }
+  .btn-pricing.solid {
+    background: var(--gold);
+    color: var(--white);
+    border-color: var(--gold);
+  }
+  .btn-pricing.solid:hover { background: #d4a45a; }
+  .pricing-note {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .pricing-note a { color: var(--green); text-decoration: none; }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials {
+    background: var(--cream);
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .testimonial-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 1.2rem;
+  }
+  .star {
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  .testimonial-quote {
+    font-size: 15px;
+    color: var(--navy);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-family: var(--serif);
+    font-size: 17px;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: 1.2rem;
+  }
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .avatar-green { background: #EAF5EE; color: var(--green); }
+  .avatar-navy { background: #E8EDF2; color: var(--navy); }
+  .avatar-gold { background: #FDF3E3; color: var(--gold); }
+  .author-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .author-role { font-size: 12px; color: var(--text-muted); }
+
+  /* ─── FAQ ─── */
+  #faq .faq-grid {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 1.6rem 0;
+  }
+  .faq-question {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--navy);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    user-select: none;
+  }
+  .faq-question:hover { color: var(--green); }
+  .faq-icon {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+  .faq-item.open .faq-icon {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+  }
+  .faq-answer {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.2s;
+    padding-top: 0;
+  }
+  .faq-item.open .faq-answer {
+    max-height: 200px;
+    padding-top: 1rem;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--cream);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contact-info { padding-top: 0.5rem; }
+  .contact-info p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+  .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .contact-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .contact-item-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .contact-item-value { font-size: 15px; color: var(--navy); font-weight: 500; }
+  .contact-form {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1.2rem; }
+  .form-group label { font-size: 13px; font-weight: 500; color: var(--navy); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--navy);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--green); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    padding: 13px 32px;
+    border-radius: 8px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+  }
+  .form-submit:hover { background: var(--green-light); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .footer-logo span { color: var(--gold); }
+  footer p { font-size: 13px; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Apex <span>Tutoring</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Enquire Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-content">
+    <span class="hero-eyebrow">English Tuition · Years 7–12</span>
+    <h1 class="hero-headline">Build <em>confidence</em><br/>in English, one<br/>session at a time.</h1>
+    <p class="hero-subtext">Personalised tutoring that helps NSW students develop strong reading, writing, and analytical skills — from junior to HSC level.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Free Consultation</a>
+      <a href="#services" class="btn-secondary">View Pricing</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">6+</span>
+        <span class="stat-label">Years of experience</span>
+      </div>
+      <div>
+        <span class="stat-num">95%</span>
+        <span class="stat-label">Students improve a grade band</span>
+      </div>
+      <div>
+        <span class="stat-num">50+</span>
+        <span class="stat-label">Students tutored</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="hero-card-back"></div>
+      <div class="hero-card">
+        <span class="card-tag">This Week's Focus</span>
+        <h3 class="card-title">Crafting a Band 6 Essay</h3>
+        <p class="card-body">We unpacked thesis construction and integrated textual evidence with precision — moving from a generic argument to a nuanced analytical response.</p>
+        <div class="card-meta">
+          <div>
+            <div class="card-meta-label">Year level</div>
+            <div class="card-meta-value">Year 12 HSC</div>
+          </div>
+          <span class="pill">English Advanced</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-block">
+      <div class="about-img-placeholder">
+        <span>Your photo here</span>
+      </div>
+      <div class="about-accent-card">
+        <span class="about-accent-num">6+</span>
+        <div class="about-accent-text">Years tutoring English in NSW</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <span class="section-label">About Me</span>
+      <h2 class="section-heading">A tutor who genuinely cares about progress.</h2>
+      <p>I'm a passionate English educator with a background in NSW curriculum and a personal commitment to helping every student find their voice on the page.</p>
+      <p>Whether your child is struggling with comprehension in Year 7 or preparing for the HSC, I tailor each session to their individual learning style, pace, and goals.</p>
+      <div class="about-quals">
+        <div class="qual-item"><div class="qual-icon"></div><span class="qual-text">Bachelor of Education (English), University of Sydney</span></div>
+        <div class="qual-item"><div class="qual-icon"></div><span class="qual-text">Experienced across Standard, Advanced, and Extension English</span></div>
+        <div class="qual-item"><div class="qual-icon"></div><span class="qual-text">NSW Working With Children Check holder</span></div>
+        <div class="qual-item"><div class="qual-icon"></div><span class="qual-text">HSC marker experience (NESA)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / PRICING -->
+<section id="services" class="alt">
+  <div class="section-header centered">
+    <span class="section-label">Services & Pricing</span>
+    <h2 class="section-heading">Tuition for every stage of the journey.</h2>
+    <p class="section-subtext">All sessions are one-on-one and tailored to the NSW English syllabus. Group sessions available on request.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <span class="pricing-badge green">Junior</span>
+      <div class="pricing-year">Years 7 – 8</div>
+      <h3 class="pricing-title">Foundation</h3>
+      <p class="pricing-desc">Building strong reading habits, sentence construction, and a love of literature.</p>
+      <div class="pricing-price">
+        <div class="price-from">From</div>
+        <span class="price-num">$65</span>
+        <div class="price-per">per 60-min session</div>
+      </div>
+      <ul class="pricing-features">
+        <li><span class="check"></span>Reading comprehension strategies</li>
+        <li><span class="check"></span>Creative & persuasive writing</li>
+        <li><span class="check"></span>Vocabulary & grammar development</li>
+        <li><span class="check"></span>Personalised homework support</li>
+      </ul>
+      <a href="#contact" class="btn-pricing outline">Get Started</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <span class="pricing-badge white">Most Popular</span>
+      <div class="pricing-year" style="color:rgba(255,255,255,0.7)">Years 9 – 10</div>
+      <h3 class="pricing-title" style="color:white">Intermediate</h3>
+      <p class="pricing-desc" style="color:rgba(255,255,255,0.65)">Developing analytical writing, text response skills, and independent study habits.</p>
+      <div class="pricing-price" style="border-bottom-color:rgba(255,255,255,0.15)">
+        <div class="price-from" style="color:rgba(255,255,255,0.55)">From</div>
+        <span class="price-num" style="color:white">$75</span>
+        <div class="price-per" style="color:rgba(255,255,255,0.55)">per 60-min session</div>
+      </div>
+      <ul class="pricing-features">
+        <li><span class="check"></span>Essay writing & structure</li>
+        <li><span class="check"></span>Analytical response to texts</li>
+        <li><span class="check"></span>Exam technique & time management</li>
+        <li><span class="check"></span>Assessment preparation</li>
+      </ul>
+      <a href="#contact" class="btn-pricing solid">Get Started</a>
+    </div>
+
+    <div class="pricing-card">
+      <span class="pricing-badge gold">Senior</span>
+      <div class="pricing-year">Years 11 – 12</div>
+      <h3 class="pricing-title">HSC Prep</h3>
+      <p class="pricing-desc">Deep focus on HSC modules, Band 6 essay technique, and exam-day performance.</p>
+      <div class="pricing-price">
+        <div class="price-from">From</div>
+        <span class="price-num">$85</span>
+        <div class="price-per">per 60-min session</div>
+      </div>
+      <ul class="pricing-features">
+        <li><span class="check"></span>All HSC English modules covered</li>
+        <li><span class="check"></span>Band 6 essay technique</li>
+        <li><span class="check"></span>Past paper & marking feedback</li>
+        <li><span class="check"></span>Trial & HSC exam preparation</li>
+      </ul>
+      <a href="#contact" class="btn-pricing outline">Get Started</a>
+    </div>
+
+  </div>
+  <p class="pricing-note">Not sure which level? <a href="#contact">Reach out</a> and we'll find the right fit together.</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header centered">
+    <span class="section-label">Testimonials</span>
+    <h2 class="section-heading">What families are saying.</h2>
+    <p class="section-subtext">Hear from parents and students who have seen real, measurable improvement.</p>
+  </div>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-quote">"My daughter went from a D to a solid B in her Year 10 English assessments after just one term. The improvement in her essay writing has been remarkable."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar avatar-green">SL</div>
+        <div>
+          <div class="author-name">Sarah L.</div>
+          <div class="author-role">Parent of Year 10 student</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-quote">"I was really nervous going into the HSC but the sessions gave me a clear framework for every essay. I ended up getting a Band 5 in Advanced English."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar avatar-navy">JT</div>
+        <div>
+          <div class="author-name">James T.</div>
+          <div class="author-role">Year 12 student, 2024 HSC</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-quote">"What sets this tutor apart is the genuine interest in each student. My son actually looks forward to sessions — which says everything."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar avatar-gold">MK</div>
+        <div>
+          <div class="author-name">Michael K.</div>
+          <div class="author-role">Parent of Year 8 student</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="section-header centered">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-heading">Common questions, answered.</h2>
+  </div>
+  <div class="faq-grid">
+
+    <div class="faq-item open">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        Where do sessions take place?
+        <div class="faq-icon">–</div>
+      </div>
+      <div class="faq-answer">Sessions are available both online via Zoom and in-person across Sydney's Inner West and surrounding areas. We'll discuss the best option when you enquire.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        How long are sessions and how often should we meet?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer">Standard sessions are 60 minutes. For most students, once a week is sufficient — though students approaching the HSC often benefit from twice weekly in Term 3 and 4.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        Do you offer a free initial consultation?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer">Yes — the first 20-minute consultation is completely free. It's a chance to discuss your child's goals, current level, and what they need from tutoring.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        Which subjects and year levels do you cover?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer">I specialise in English across Years 7–12, covering Standard English, Advanced English, and English Extension 1. I'm well-versed in all current HSC modules and the NSW NESA syllabus.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        How do I pay, and are sessions charged in advance?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer">Invoices are issued weekly or fortnightly by preference. Payment is accepted via bank transfer. A cancellation policy applies — please give at least 24 hours' notice to avoid a cancellation fee.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        Do you offer group sessions?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer">Small group sessions (2–4 students) are available at a reduced per-student rate. These work particularly well for HSC preparation workshops. Reach out to discuss availability.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-heading">Let's find the right fit for your child.</h2>
+      <p>Fill in the form and I'll get back to you within one business day to arrange a free consultation.</p>
+      <div class="contact-details">
+        <div class="contact-row">
+          <div class="contact-dot"></div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-value">Sydney, NSW (Online & In-person)</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-dot"></div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">hello@apextutoring.com.au</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-dot"></div>
+          <div>
+            <div class="contact-item-label">Response time</div>
+            <div class="contact-item-value">Within 1 business day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="parent-name">Parent / Guardian Name</label>
+          <input type="text" id="parent-name" placeholder="Jane Smith" />
+        </div>
+        <div class="form-group">
+          <label for="student-name">Student Name</label>
+          <input type="text" id="student-name" placeholder="Alex Smith" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="jane@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="04xx xxx xxx" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="year-level">Year Level</label>
+        <select id="year-level">
+          <option value="">Select a year level...</option>
+          <option>Year 7</option>
+          <option>Year 8</option>
+          <option>Year 9</option>
+          <option>Year 10</option>
+          <option>Year 11</option>
+          <option>Year 12</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell me a bit about your goals</label>
+        <textarea id="message" placeholder="E.g. My son is struggling with essay writing and has assessments coming up in Term 2..."></textarea>
+      </div>
+      <button class="form-submit">Send Enquiry</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Apex <span>Tutoring</span></div>
+  <p>© 2025 Apex Tutoring. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-icon').textContent = '+';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    item.querySelector('.faq-icon').textContent = '–';
+  }
+}
+</script>
+</body>
+</html>
